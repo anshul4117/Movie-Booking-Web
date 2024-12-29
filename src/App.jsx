@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ShowTimingsPage from "./pages/ShowTimingsPage";
 
 const App = () => {
   return (
@@ -13,6 +14,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies/:id" element={<MovieDetailsPage />} />
+          <Route path="/movies/:id/shows" element={<ShowTimingsPage />} />
+
         </Routes>
       </div>
       <Footer />

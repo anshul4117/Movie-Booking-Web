@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom"; // Import useNavigate
 import pushpa from "../assets/movie/pushpa2.avif";
 import john from "../assets/movie/john.avif";
 import mufasa from "../assets/movie/mufasa.avif";
@@ -21,7 +21,7 @@ const movieData = {
       "Rashmika Mandanna as Srivalli",
       "Fahadh Faasil as Bhanwar Singh Shekhawat",
       "Rao Ramesh Actor",
-      "Sunil Actor"
+      "Sunil Actor",
     ],
     crew: ["Director: Sukumar", "Producer: Naveen Yerneni"],
     showTimings: [
@@ -32,7 +32,8 @@ const movieData = {
   },
   john: {
     title: "Baby Jawan",
-    description: "Atlee`s Baby John, starring Varun Dhawan, Jackie Shroff, Wamiqa Gabbi and Keerthy Suresh, is a high-octane action thriller that follows a fearless cop leading a double life to protect his daughter from a deadly underworld.  ",
+    description:
+      "Atlee`s Baby John, starring Varun Dhawan, Jackie Shroff, Wamiqa Gabbi and Keerthy Suresh, is a high-octane action thriller that follows a fearless cop leading a double life to protect his daughter from a deadly underworld.",
     genre: "Action, Thriller",
     language: "Hindi",
     releaseDate: "22 March 2024",
@@ -55,7 +56,13 @@ const movieData = {
     releaseDate: "10 July 2024",
     duration: "118 min",
     poster: mufasa,
-    cast: ["Aaron Pierre", "Shah Rukh Khan", "Mahesh Babu", "Kelvin Harrison Jr.", "Seth Rogen"],
+    cast: [
+      "Aaron Pierre",
+      "Shah Rukh Khan",
+      "Mahesh Babu",
+      "Kelvin Harrison Jr.",
+      "Seth Rogen",
+    ],
     crew: ["Director: Barry Jenkins", "Musician: Hans Zimmer"],
     showTimings: [
       { time: "11:00 AM", availableSeats: 45 },
@@ -88,15 +95,19 @@ const MovieDetailsPage = () => {
         {/* Movie Details Section */}
         <div className="w-2/3">
           <h1 className="text-3xl font-bold text-black-600">{movie.title}</h1>
-          {/* <p className="mt-4 text-gray-700">{movie.description}</p>  */}
           <section className="flex flex-col w-2/4 mt-4 gap-6 bg-white p-4 rounded-md shadow-lg">
-            {/* First Section */}
-            <div className="flex  justify-between items-center">
+            <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faStar} className="text-yellow-400 w-6 h-6" />
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className="text-yellow-400 w-6 h-6"
+                />
                 <h5 className="text-lg font-bold">8.4/10</h5>
                 <h6 className="text-gray-500 text-sm">(397.8K Votes)</h6>
-                <FontAwesomeIcon icon={faChevronRight} className="text-gray-400 w-3 h-3" />
+                <FontAwesomeIcon
+                  icon={faChevronRight}
+                  className="text-gray-400 w-3 h-3"
+                />
               </div>
               <button className="bg-red-600 text-white px-4 py-2 rounded-md text-sm hover:bg-red-700">
                 Rate now
@@ -119,24 +130,24 @@ const MovieDetailsPage = () => {
             </li>
           </ul>
 
-          {/* add book ticket button */}
-          <button
-            className="bg-red-600 mt-5 p-14 hover:bg-red-800 text-white font-bold py-2 px
-          -4 rounded-lg "
+          {/* Book Ticket Button */}
+          <Link
+            to={`/movies/${id}/shows`}
+            className="bg-red-600 mt-5 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-lg inline-block"
           >
             Book Ticket
-          </button>
+          </Link>
         </div>
       </div>
 
-
-      {/* create div for about us for movie */}
+      {/* About The Movie */}
       <div className="flex flex-col gap-8 ml-20 justify-center">
         <h2 className="text-2xl mt-10 font-bold text-balck-600">About The Movie</h2>
-        <p className=" w-2/3 text-gray-700">{movie.description}</p>
+        <p className="w-2/3 text-gray-700">{movie.description}</p>
       </div>
+
       {/* Cast and Crew Section */}
-      <div className="mt-8 gap-8 ml-20 ">
+      <div className="mt-8 gap-8 ml-20">
         <h2 className="text-xl font-semibold mb-2">Cast</h2>
         <ul className="list-disc list-inside">
           {movie.cast.map((actor, index) => (
@@ -151,26 +162,8 @@ const MovieDetailsPage = () => {
           ))}
         </ul>
       </div>
-
-      {/* Show Timings Section */}
-      {/* <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-4">Show Timings</h2>
-        <div className="grid grid-cols-3 gap-4">
-          {movie.showTimings.map((show, index) => (
-            <div
-              key={index}
-              className="border rounded p-4 text-center bg-gray-100 hover:bg-gray-200 cursor-pointer"
-            >
-              <p className="font-bold">{show.time}</p>
-              <p className="text-sm text-gray-600">
-                {show.availableSeats} seats available
-              </p>
-            </div>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 };
 
-export default MovieDetailsPage;    
+export default MovieDetailsPage;
