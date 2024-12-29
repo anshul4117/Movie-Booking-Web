@@ -15,12 +15,17 @@ const Header = () => {
           Sign In
         </button>
       </div>
-      <div className="w-full mx-auto px-28 py-3  bg-gray-200 flex justify-between items-center">
+      <div className="w-full mx-auto px-28 text-sm py-2 bg-gray-200 flex justify-between items-center">
         <nav>
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-3">
             <li>
               <a href="#" className="hover:text-gray-400">
                 Movies
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-gray-400">
+                Stream
               </a>
             </li>
             <li>
@@ -31,6 +36,16 @@ const Header = () => {
             <li>
               <a href="#" className="hover:text-gray-400">
                 Plays
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-gray-400">
+                Sports
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-gray-400">
+                Activities
               </a>
             </li>
           </ul>
